@@ -17,6 +17,18 @@ export class SubmitFeedbackUseCase {
   }
 
   async perform(request: SubmitFeedbackRequest): Promise<void> {
+    if (!request.type) {
+      throw new Error('Type is required');
+    }
+
+    if (!request.comment) {
+      throw new Error('Comment is required');
+    }
+
+    if (request.screenshot?.startsWith('data:image/png;base64')) {
+      throw new Error('Invalid screenshot format');
+    }
+
     const emailBody = [
       '<div style="font-family: sans-serif; font-size: 16px; color: #111;">',
       `<p>Tipo do feedback: ${request.type}</p>`,
