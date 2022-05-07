@@ -1,26 +1,29 @@
+import { useFonts, Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import AppLoading from 'expo-app-loading';
+import { View } from 'react-native';
+
+import { Widget } from './src/components/Widget';
+import { theme } from './src/theme';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({ Inter_400Regular, Inter_500Medium });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello World!</Text>
-      <StatusBar style="light" />
+    <View style={{
+      flex: 1,
+      backgroundColor: theme.colors.background
+    }}>
+      <Widget />
+      <StatusBar 
+        style="light"
+        backgroundColor='transparent'
+        translucent 
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#293241',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  text: {
-    color: '#fff',
-    fontSize: 24,
-    fontWeight: '600'
-  }
-});
