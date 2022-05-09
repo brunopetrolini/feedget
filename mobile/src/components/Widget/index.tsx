@@ -36,7 +36,7 @@ function Widget() {
         backgroundStyle={styles.modal}
         handleIndicatorStyle={styles.indicator}
       >
-        <Form feedbackType='OTHER' />
+        <Form feedbackType='BUG' />
       </BottomSheet>
     </>
   );

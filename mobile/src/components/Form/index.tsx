@@ -30,12 +30,19 @@ export function Form({ feedbackType }: Props) {
             color={theme.colors.text_secondary}
           />
         </TouchableOpacity>
+
+        <View style={styles.titleContainer}>
+          <Image source={feedbackTypeInfo.image} style={styles.image} />
+          <Text style={styles.titleText}>{feedbackTypeInfo.title}</Text>
+        </View>
       </View>
 
-      <View style={styles.titleContainer}>
-        <Image source={feedbackTypeInfo.image} style={styles.image} />
-        <Text style={styles.titleText}>{feedbackTypeInfo.title}</Text>
-      </View>
+      <TextInput
+        multiline
+        style={styles.input}
+        placeholder="Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo..."
+        placeholderTextColor={theme.colors.text_secondary}
+      />
     </View>
   );
 }
