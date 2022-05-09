@@ -6,7 +6,7 @@ import { theme } from '../../theme';
 import { styles } from './styles';
 
 interface Props {
-  screenshot: string;
+  screenshot: string | null;
   onTakeShot: () => void;
   onRemoveShot: () => void;
 }
