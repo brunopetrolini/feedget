@@ -10,6 +10,7 @@ import { Form } from '../Form';
 
 import { theme } from '../../theme';
 import { styles } from './styles';
+import { Success } from '../Success';
 
 export type FeedbackType = keyof typeof feedbackTypes;
 

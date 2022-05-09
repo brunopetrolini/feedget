@@ -8,10 +8,12 @@ import {
   TouchableOpacity 
 } from 'react-native';
 import { FeedbackType } from '../Widget';
+import { ScreenshotButton } from '../ScreenshotButton';
 
 import { styles } from './styles';
 import { theme } from '../../theme';
 import { feedbackTypes } from '../../utils/feedbackTypes';
+import { Button } from '../Button';
 
 interface Props {
   feedbackType: FeedbackType;
@@ -43,6 +45,15 @@ export function Form({ feedbackType }: Props) {
         placeholder="Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo..."
         placeholderTextColor={theme.colors.text_secondary}
       />
+
+      <View style={styles.footer}>
+    	  <ScreenshotButton
+          onTakeShot={() => {}}
+          onRemoveShot={() => {}}
+          screenshot="http://github.com/brunopetrolini.png"
+        />
+        <Button isLoading={false} />
+      </View>
     </View>
   );
 }
