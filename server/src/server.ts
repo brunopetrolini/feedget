@@ -9,4 +9,4 @@ app.use(express.json({ limit: '100mb' }));
 
 app.use(routes);
 
-app.listen(4000, () => console.log('HTTP server running'));
+app.listen(process.env.PORT || 4000, () => console.log('HTTP server running'));
