@@ -25,10 +25,6 @@ export class SubmitFeedbackUseCase {
       throw new Error('Comment is required');
     }
 
-    if (request.screenshot?.startsWith('data:image/png;base64')) {
-      throw new Error('Invalid screenshot format');
-    }
-
     const emailBody = [
       '<div style="font-family: sans-serif; font-size: 16px; color: #111;">',
       `<p>Tipo do feedback: ${request.type}</p>`,
